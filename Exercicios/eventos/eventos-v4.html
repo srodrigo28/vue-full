@@ -1,0 +1,35 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ titulo }}</p>
+    <p> {{ visor }} </p>
+    <button v-on:click="somar(5, $event)"> + </button>
+    <button v-on:click="tirar(5, $event)"> - </button>
+    <p v-on:mousemove="atualizarXY">Mouse: {{ x }} e {{ y }} </p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJS!',
+            visor: 0,
+            x: 0,
+            y: 0
+        },
+        methods: {
+            somar(passo, ev){ 
+                console.log(passo, ev)
+                this.visor += passo
+            },
+            tirar(passo, ev){ 
+                console.log(passo, ev)
+                this.visor -= passo
+            },
+            atualizarXY(e){
+                this.x = e.clientX
+                this.y = e.clientY
+            }
+        }
+    })
+</script>

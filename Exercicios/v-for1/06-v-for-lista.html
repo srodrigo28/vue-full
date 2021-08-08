@@ -1,0 +1,59 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+<div id="app" class="container">
+    <p class="alert alert-success">Pokémons Total: {{ pokemon.length }}</p>
+    <ul>
+        <li v-for="row in pokemon" class="alert alert-success">
+            {{ row.nome }}
+        </li>
+    </ul>
+    <p class="alert alert-primary text-green">Treinadores Total: {{ pokemon.length }}</p>
+    <ul>
+        <li v-for="row in treinadores" class="alert alert-success">
+            {{ row.nome }}
+        </li>
+    </ul>
+    <p class="alert alert-success">Treinadores e seus pokémons: {{ treinadores.length }}</p>
+    <ul>
+        <li v-for="row in treinadores" class="alert alert-success">
+            {{ row.nome }} | Pokemons {{ row.pokemons.length }} - {{ row.pokemons }}
+        </li>
+    </ul>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJS!',
+            pokemon: [
+                { nome: 'charmander', nivel: 2},
+                { nome: 'bubasaur', nivel: 2},
+                { nome: 'totodile', nivel: 2}
+            ],
+            treinadores: [
+                {nome: 'muel', cidade: 'tiradentes', pokemons: [
+                    { nome: 'charmander', nivel: 2},
+                    { nome: 'bubasaur', nivel: 2},
+                    { nome: 'pikachu', nivel: 2},
+                ]},
+                {nome: 'ash', cidade: 'veridian', pokemons: [
+                    { nome: 'charizard', nivel: 38},
+                    { nome: 'venusar', nivel: 58},
+                ]},
+                {nome: 'bastiao', cidade: 'aparecida', pokemons: [
+                    { nome: 'charizard', nivel: 100},
+                    { nome: 'venusar', nivel: 100},
+                    { nome: 'new', nivel: 100},
+                    { nome: 'newTwo', nivel: 100},
+                    { nome: 'Alakazam', nivel: 100},
+                ]},
+            ]
+        }
+    })
+</script>
+<style>
+    ul{
+        list-style: none;
+    }
+</style>
